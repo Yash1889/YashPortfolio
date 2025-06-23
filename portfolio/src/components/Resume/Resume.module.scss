@@ -1,0 +1,60 @@
+.resume {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0 3rem 0;
+  text-align: center;
+  background: linear-gradient(120deg, #0f172a 60%, #23272f 100%);
+}
+h2 {
+  font-size: 2.3rem;
+  color: #38bdf8;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.01em;
+}
+.downloadBtn {
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.13rem;
+  box-shadow: 0 2px 12px 0 rgba(56,189,248,0.10);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 2.2rem;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+.downloadBtn:hover {
+  background: #0f172a;
+  color: #38bdf8;
+  border: 1.5px solid #38bdf8;
+  transform: translateY(-2px) scale(1.04);
+}
+.githubStats {
+  margin-bottom: 2.2rem;
+  background: rgba(24,31,42,0.85);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(56,189,248,0.18), 0 1.5px 8px 0 #0002;
+  padding: 2.2rem 2rem 1.7rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(12px);
+}
+.githubStats img {
+  max-width: 100%;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px 0 rgba(56,189,248,0.08);
+}
+@media (max-width: 600px) {
+  .resume { padding: 2.5rem 0 1rem 0; }
+  h2 { font-size: 1.3rem; }
+  .githubStats { font-size: 0.8rem; padding: 1.2rem 0.5rem; }
+} 
