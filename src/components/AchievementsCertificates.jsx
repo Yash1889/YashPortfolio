@@ -30,11 +30,10 @@ const codechefBadges = [
 
 const otherAchievements = [
   { caption: 'Intershala', url: '/certificates/internshala.jpeg', type: 'image' },
-  { caption: 'Palo Alto', url: '/certificates/samsung-hackathon.jpeg', type: 'image' },
   { caption: 'Samsung hackathon', url: '/certificates/samsung-hackathon.jpeg', type: 'image' },
   { caption: 'Hack With Gujrat', url: '/certificates/hack-with-gujrat.jpeg', type: 'image' },
-  { caption: 'Cybersecurity Foundation', url: '/certificates/KIET12-CF-04_02_25_Cybersecurity Foundation Student Certificate (1).pdf', type: 'pdf' },
-  { caption: 'Yashizzer 500 Difficulty Rating', url: '/certificates/yashizzer-500 difficulty rating.pdf', type: 'pdf' },
+  { caption: 'Cybersecurity Foundation', url: '/certificates/cybersecurity-foundation-certificate.pdf', type: 'pdf' },
+  { caption: 'Yashizzer 500 Difficulty Rating', url: '/certificates/yashizzer-500-difficulty-rating.pdf', type: 'pdf' },
 ];
 
 const settings = {
@@ -58,6 +57,7 @@ const renderSlides = (items) =>
             src={item.url}
             alt={item.caption}
             className={styles.certificateFrame}
+            loading="lazy"
             onError={(e) => {
               console.error('Image failed to load:', item.url);
               e.target.style.display = 'none';
@@ -70,7 +70,12 @@ const renderSlides = (items) =>
             className={styles.certificateFrame}
             aria-label={item.caption}
           >
-            <a href={item.url} target="_blank" rel="noopener noreferrer">View PDF</a>
+            <div className={styles.pdfFallback}>
+              <p>PDF preview not supported.</p>
+              <a href={item.url} target="_blank" rel="noopener noreferrer" className={styles.pdfLink}>
+                Open PDF ↗
+              </a>
+            </div>
           </object>
         ) : (
           <iframe
