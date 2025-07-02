@@ -25,15 +25,15 @@ const codechefBadges = [
   { caption: 'Codechef 1', url: '/certificates/CodeChefBadge(2).png', type: 'image' },
   { caption: 'Codechef 2', url: '/certificates/CodeChefBadge(3).png', type: 'image' },
   { caption: 'Codechef 3', url: '/certificates/CodeChefBadge(4).png', type: 'image' },
-  { caption: 'Codechef 4', url: '/certificates/WhatsApp Image 2025-06-27 at 3.52.23 PM.jpeg', type: 'image' },
+  { caption: 'Codechef 4', url: '/certificates/coding-contest-2nd.jpeg', type: 'image' },
 ];
 
 const otherAchievements = [
-  { caption: 'Intershala', url: '/certificates/WhatsApp Image 2025-07-03 at 12.14.02 AM(1).jpeg', type: 'image' },
-  { caption: 'Palo Alto', url: '/certificates/WhatsApp Image 2025-07-03 at 12.13.40 AM.jpeg', type: 'image' },
-  { caption: 'GFG 160', url: '/certificates/gfg160.pdf', type: 'pdf' },
-  { caption: 'Samsung hackathon', url: '/certificates/WhatsApp Image 2025-06-27 at 3.58.42 PM.jpeg', type: 'image' },
-  { caption: 'Hack With Gujrat', url: '/certificates/KIET12-CF-04_02_25_Cybersecurity Foundation Student Certificate (1).pdf', type: 'pdf' },
+  { caption: 'Intershala', url: '/certificates/internshala.jpeg', type: 'image' },
+  { caption: 'Palo Alto', url: '/certificates/samsung-hackathon.jpeg', type: 'image' },
+  { caption: 'Samsung hackathon', url: '/certificates/samsung-hackathon.jpeg', type: 'image' },
+  { caption: 'Hack With Gujrat', url: '/certificates/hack-with-gujrat.jpeg', type: 'image' },
+  { caption: 'Cybersecurity Foundation', url: '/certificates/KIET12-CF-04_02_25_Cybersecurity Foundation Student Certificate (1).pdf', type: 'pdf' },
   { caption: 'Yashizzer 500 Difficulty Rating', url: '/certificates/yashizzer-500 difficulty rating.pdf', type: 'pdf' },
 ];
 
@@ -58,6 +58,10 @@ const renderSlides = (items) =>
             src={item.url}
             alt={item.caption}
             className={styles.certificateFrame}
+            onError={(e) => {
+              console.error('Image failed to load:', item.url);
+              e.target.style.display = 'none';
+            }}
           />
         ) : item.type === 'pdf' || item.url.match(/\.pdf$/i) ? (
           <object
