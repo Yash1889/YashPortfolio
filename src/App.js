@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import CompetitiveProgramming from './components/CompetitiveProgramming/CompetitiveProgramming';
+import AchievementsCertificates from './components/AchievementsCertificates';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
 import Footer from './components/Footer/Footer';
@@ -15,6 +16,7 @@ function App() {
       <Hero showResumeButton />
       <About />
       <CompetitiveProgramming />
+      <AchievementsCertificates />
       <Projects />
       <Skills />
       <Footer />
