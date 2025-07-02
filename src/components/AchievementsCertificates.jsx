@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const leetcodeBadges = [
-  { caption: '50 days 2024 Leetcode', url: '/certificates/50%20days%202024%20leetcode.png', type: 'image' },
+  { caption: '50 days 2024 Leetcode', url: '/certificates/leetcode-50days-2024.png', type: 'image' },
   { caption: '50 days 2025 Leetcode', url: 'https://drive.google.com/file/d/1lIm6A0heXE9gs_LaxIfEyX8pNw_UKYBD/preview' },
   { caption: '100 days 2024 Leetcode', url: 'https://drive.google.com/file/d/1PwnYLlPE1O5scUKnZj9laieIi5R9O7UJ/preview' },
   { caption: '100 days 2025 Leetcode', url: 'https://drive.google.com/file/d/1O2ip6D20bBLhQSaD5avSZF0XcQjPTRGz/preview' },
