@@ -52,6 +52,14 @@
   background: #fff;
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px 0 rgba(56,189,248,0.10);
+  display: block;
+}
+
+img.certificateFrame {
+  object-fit: contain;
+  width: 220px;
+  height: 220px;
+  background: #fff;
 }
 
 .caption {
@@ -73,7 +81,8 @@
     max-width: 98vw;
     padding: 0.7rem 0.2rem 0.7rem 0.2rem;
   }
-  .certificateFrame {
+  .certificateFrame,
+  img.certificateFrame {
     width: 140px;
     height: 140px;
   }
