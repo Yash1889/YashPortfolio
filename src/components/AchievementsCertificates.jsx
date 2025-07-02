@@ -25,15 +25,16 @@ const codechefBadges = [
   { caption: 'Codechef 1', url: '/certificates/CodeChefBadge(2).png', type: 'image' },
   { caption: 'Codechef 2', url: '/certificates/CodeChefBadge(3).png', type: 'image' },
   { caption: 'Codechef 3', url: '/certificates/CodeChefBadge(4).png', type: 'image' },
-  { caption: 'Codechef 4', url: '/certificates/coding-contest-2nd.jpeg', type: 'image' },
+  { caption: 'Yashizzer 500 Difficulty Rating', url: '/certificates/yashizzer-500-difficulty-rating.pdf', type: 'pdf' },
 ];
 
 const otherAchievements = [
-  { caption: 'Intershala', url: '/certificates/internshala.jpeg', type: 'image' },
+  { caption: 'Internshala', url: '/certificates/internshala.jpeg', type: 'image' },
   { caption: 'Samsung hackathon', url: '/certificates/samsung-hackathon.jpeg', type: 'image' },
   { caption: 'Hack With Gujrat', url: '/certificates/hack-with-gujrat.jpeg', type: 'image' },
+  { caption: 'Coding Contest 2nd', url: '/certificates/coding-contest-2nd.jpeg', type: 'image' },
+  { caption: 'GFG 160', url: '/certificates/gfg160.pdf', type: 'pdf' },
   { caption: 'Cybersecurity Foundation', url: '/certificates/cybersecurity-foundation-certificate.pdf', type: 'pdf' },
-  { caption: 'Yashizzer 500 Difficulty Rating', url: '/certificates/yashizzer-500-difficulty-rating.pdf', type: 'pdf' },
 ];
 
 const settings = {
