@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const leetcodeBadges = [
-  { caption: '50 days 2024 Leetcode', url: 'https://drive.google.com/file/d/1JsdD0Yk2jQ5l1ceLs0PxUCBSmkXf9u4-/preview' },
+  { caption: '50 days 2024 Leetcode', url: '/certificates/50%20days%202024%20leetcode.png', type: 'image' },
   { caption: '50 days 2025 Leetcode', url: 'https://drive.google.com/file/d/1lIm6A0heXE9gs_LaxIfEyX8pNw_UKYBD/preview' },
   { caption: '100 days 2024 Leetcode', url: 'https://drive.google.com/file/d/1PwnYLlPE1O5scUKnZj9laieIi5R9O7UJ/preview' },
   { caption: '100 days 2025 Leetcode', url: 'https://drive.google.com/file/d/1O2ip6D20bBLhQSaD5avSZF0XcQjPTRGz/preview' },
@@ -52,12 +52,20 @@ const renderSlides = (items) =>
   items.map((item, idx) => (
     <div key={idx} className={styles.slide}>
       <div className={styles.slideContent}>
-        <iframe
-          src={item.url}
-          title={item.caption}
-          className={styles.certificateFrame}
-          allow="autoplay"
-        />
+        {item.type === 'image' || item.url.endsWith('.png') || item.url.endsWith('.jpg') || item.url.endsWith('.jpeg') ? (
+          <img
+            src={item.url}
+            alt={item.caption}
+            className={styles.certificateFrame}
+          />
+        ) : (
+          <iframe
+            src={item.url}
+            title={item.caption}
+            className={styles.certificateFrame}
+            allow="autoplay"
+          />
+        )}
         <div className={styles.caption}>{item.caption}</div>
       </div>
     </div>
