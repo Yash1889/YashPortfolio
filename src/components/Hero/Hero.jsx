@@ -1,101 +1,98 @@
-import React from 'react';
-import styles from './Hero.module.scss';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import profileImg from '../../assets/profile.jpg'; // Placeholder, to be replaced
+import { FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
+import { Typewriter } from 'react-simple-typewriter';
+import styles from './Hero.module.scss';
+
+const titleText = 'Competitive Programmer · ML Engineer · Full-Stack Developer';
 
 const Hero = ({ showResumeButton }) => {
-  // Typing animation logic will be added later
+  const [showName, setShowName] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
+  const heroBg = process.env.PUBLIC_URL + '/assets/mr-robot.jpg';
+
+  useEffect(() => {
+    const nameTimer = setTimeout(() => setShowName(true), 1000);
+    const titleTimer = setTimeout(() => setShowTitle(true), 1500);
+    return () => {
+      clearTimeout(nameTimer);
+      clearTimeout(titleTimer);
+    };
+  }, []);
+
   return (
-    <section className={styles.hero} id="hero">
-      <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className={styles.inner}>
-        <div className={styles.left}>
-          <motion.h1 
-            className={styles.headline}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span>Yashraj Gupta</span>
-          </motion.h1>
-          <motion.div 
-            className={styles.tagline}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Competitive Programmer. Full-Stack Developer. ML Enthusiast.
-          </motion.div>
+    <section
+      className={styles.hero}
+      id="hero"
+      style={{
+        background: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(16, 18, 26, 0.65)), url(${heroBg}) center center/cover no-repeat`
+      }}
+    >
+      <div className={styles.heroContent}>
+        <div className={styles.animatedHello}>
+          <Typewriter
+            words={['Hello, friend.']}
+            loop={1}
+            cursor
+            cursorStyle={<span className={styles.cursor}>_</span>}
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
         </div>
-        <div className={styles.right}>
-          <motion.div 
-            className={styles.profileCard}
-            initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1, delay: 0.6, type: "spring", stiffness: 100 }}
-            whileHover={{ 
-              scale: 1.03, 
-              boxShadow: "0 0 48px 8px #00ff41cc, 0 2px 24px 0 #00ff4133",
-              borderColor: "#00ff41"
+        {showName && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className={styles.name}
+          >
+            I am Yashraj Gupta
+          </motion.div>
+        )}
+        {showTitle && (
+          <motion.div
+            className={styles.animatedTitle}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.025
+                }
+              }
             }}
-            whileTap={{ scale: 0.98 }}
+            style={{marginTop: showName ? '0.2rem' : '1.2rem'}}
           >
-            <motion.img 
-              src={profileImg} 
-              alt="Yashraj Gupta" 
-              className={styles.profileImg}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1, type: "spring" }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-            />
-            <div className={styles.glow}></div>
-            <motion.div 
-              className={styles.cardContent}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            >
-              <div className={styles.terminalLine}>
-                HELLO FRIENDS
-                <motion.span
-                  className={styles.cursor}
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
-                >
-                  _
-                </motion.span>
-              </div>
-              <motion.div 
-                className={styles.cardCta}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
+            {titleText.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                aria-hidden="true"
               >
-                <motion.a 
-                  href="#projects" 
-                  className={styles.cardBtn}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  View Projects
-                </motion.a>
-                {showResumeButton && (
-                  <motion.a 
-                    href="/resume.pdf" 
-                    className={styles.cardBtn} 
-                    download
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Download Resume
-                  </motion.a>
-                )}
-              </motion.div>
-            </motion.div>
+                {char}
+              </motion.span>
+            ))}
           </motion.div>
+        )}
+        <div className={styles.heroLinks}>
+          <a href="https://www.linkedin.com/in/yashrajguptaiitk/" target="_blank" rel="noopener noreferrer" className={styles.linkedin} aria-label="LinkedIn profile">
+            <FaLinkedin size={28} />
+          </a>
+          <a href="https://github.com/Yash1889" target="_blank" rel="noopener noreferrer" className={styles.github} aria-label="GitHub profile">
+            <FaGithub size={28} />
+          </a>
+          {showResumeButton && (
+            <a href="/resume.pdf" className={styles.resumeBtn} download title="Download Resume" aria-label="Download Resume PDF">
+              <FaFileDownload size={24} />
+            </a>
+          )}
         </div>
-      </motion.div>
-      <div className={styles.bgAnim}></div>
+      </div>
     </section>
   );
 };

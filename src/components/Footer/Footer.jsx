@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import { FaGithub, FaLinkedin, FaTwitter, FaCode, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowUp } from 'react-icons/fa';
 import { SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from 'react-icons/si';
 
 const socials = [
