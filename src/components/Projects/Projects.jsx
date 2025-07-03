@@ -1,9 +1,27 @@
 import React from 'react';
 import styles from './Projects.module.scss';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaPlay, FaRobot, FaDatabase, FaFilm, FaUser } from 'react-icons/fa';
 
 const projects = [
+  {
+    title: 'MovieTracker',
+    desc: 'A modern, responsive web application for tracking and discovering movies. Features real-time search, watchlist management, star ratings, and a beautiful dark theme UI.',
+    features: [
+      'Real-time Movie Search',
+      'Watchlist & Watched Movies',
+      'Star-based Rating System',
+      'Trending Movies Discovery',
+      'Local Storage Persistence',
+      'Responsive Design',
+      'Dark Theme UI',
+    ],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'TMDB API', 'Local Storage'],
+    live: 'https://movies-hub-sepia-sigma.vercel.app',
+    repo: 'https://github.com/Yash1889/movies-hub',
+    icon: <FaFilm />,
+    category: 'Web Application',
+  },
   {
     title: 'TLE Eliminators',
     desc: 'A comprehensive system to track and manage student progress on Codeforces. Features include student management, Codeforces progress tracking, contest history visualization, problem solving analytics, automated data sync, inactivity detection, and more.',
@@ -19,64 +37,141 @@ const projects = [
     stack: ['React.js', 'Material-UI', 'Node.js', 'Express.js', 'MongoDB', 'Chart.js', 'Nodemailer'],
     live: 'https://codeforces-5.onrender.com',
     repo: 'https://github.com/Yash1889/codeforces',
-    image: '',
+    icon: <FaPlay />,
+    category: 'Web Application',
   },
   {
-    title: 'Spring Boot CRUD Example',
-    desc: 'A simple Spring Boot app demonstrating CRUD operations on a Student entity. Built with Java, Spring Boot, Thymeleaf, and H2 in-memory database.',
+    title: 'Spring Boot CRUD',
+    desc: 'A robust Spring Boot application demonstrating full CRUD operations with a clean MVC architecture, featuring student management, RESTful APIs, and modern web interface.',
     features: [
-      'Spring Data JPA',
+      'Complete CRUD Operations',
+      'Spring Data JPA Integration',
+      'RESTful API Endpoints',
       'Thymeleaf Frontend',
-      'H2 In-memory Database',
-      'MVC + Service + Repo Architecture',
+      'H2 Database',
+      'MVC Architecture',
+      'Form Validation',
     ],
-    stack: ['Java', 'Spring Boot', 'Thymeleaf', 'H2'],
-    live: '',
+    stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'Thymeleaf', 'H2 Database', 'Maven'],
+    live: 'https://web-production-4cea6.up.railway.app',
     repo: 'https://github.com/Yash1889/crud-spring-boot',
-    image: '',
+    icon: <FaDatabase />,
+    category: 'Backend Application',
   },
   {
-    title: 'Movies Hub',
-    desc: 'A movie tracker app with real-time search, star ratings, and IMDB-style UI. Features include watchlist, watched movies, and a clean responsive design.',
+    title: 'GroqJarvis - AI Assistant',
+    desc: 'A modern, feature-rich AI assistant powered by Groq API with multiple personality modes, PDF support, speech synthesis, and a beautiful ChatGPT-like interface.',
     features: [
-      'Real-time Search',
-      'Star-based Ratings',
-      'Watchlist & Watched',
-      'IMDB-style UI',
+      'Multi-Mode AI Personalities (7 different modes)',
+      'PDF Document Processing & Analysis',
+      'Text-to-Speech Synthesis',
+      'Real-time Chat Interface',
+      'Dark/Light Mode Toggle',
+      'Responsive Design',
+      'Conversation History',
     ],
-    stack: ['HTML', 'CSS', 'JavaScript'],
+    stack: ['Python', 'Flask', 'Groq API', 'JavaScript', 'CSS', 'PyPDF2', 'Web Speech API'],
     live: '',
-    repo: 'https://github.com/Yash1889/movies-hub',
-    image: '',
+    repo: 'https://github.com/Yash1889/GROQ-ChatBot',
+    icon: <FaRobot />,
+    category: 'AI Application',
+  },
+  {
+    title: 'Personal Portfolio',
+    desc: 'A modern, responsive portfolio website showcasing my skills, projects, and competitive programming achievements with smooth animations and professional design.',
+    features: [
+      'Responsive Design & Modern UI/UX',
+      'Smooth Animations with Framer Motion',
+      'Competitive Programming Stats Integration',
+      'Interactive Skills Section',
+      'Project Showcase with Live Demos',
+      'Dark/Light Theme Support',
+      'Contact Information & Social Links',
+    ],
+    stack: ['React.js', 'SCSS', 'Framer Motion', 'React Icons', 'Vercel'],
+    live: 'https://yash-portfolio-8eoa.vercel.app',
+    repo: 'https://github.com/Yash1889/YashPortfolio',
+    icon: <FaUser />,
+    category: 'Portfolio Website',
   },
 ];
 
 const Projects = () => {
   return (
     <section className={styles.projects} id="projects">
-      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-        <h2>Projects</h2>
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ once: true }} 
+        transition={{ duration: 0.7 }}
+      >
+        <h2>Featured Projects</h2>
+        <p className={styles.subtitle}>Explore my latest work across different technologies and domains</p>
+        
         <div className={styles.grid}>
-          {projects.map((p) => (
+          {projects.map((project, index) => (
             <motion.div
               className={styles.card}
-              key={p.title}
+              key={project.title}
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, type: 'spring' }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
             >
               <div className={styles.cardHeader}>
-                <h3>{p.title}</h3>
+                <div className={styles.titleSection}>
+                  <div className={styles.icon}>{project.icon}</div>
+                  <div>
+                    <h3>{project.title}</h3>
+                    <span className={styles.category}>{project.category}</span>
+                  </div>
+                </div>
                 <div className={styles.links}>
-                  {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer" title="Live Demo"><FaExternalLinkAlt /></a>}
-                  {p.repo && <a href={p.repo} target="_blank" rel="noopener noreferrer" title="Source Code"><FaGithub /></a>}
+                  {project.live && (
+                    <a 
+                      href={project.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      title="Live Demo"
+                      className={styles.liveLink}
+                    >
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                  {project.repo && (
+                    <a 
+                      href={project.repo} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      title="Source Code"
+                      className={styles.repoLink}
+                    >
+                      <FaGithub />
+                    </a>
+                  )}
                 </div>
               </div>
-              <p className={styles.desc}>{p.desc}</p>
-              <ul className={styles.features}>
-                {p.features.map(f => <li key={f}>{f}</li>)}
-              </ul>
-              <div className={styles.stack}>{p.stack.join(' · ')}</div>
+              
+              <p className={styles.desc}>{project.desc}</p>
+              
+              <div className={styles.featuresSection}>
+                <h4>Key Features</h4>
+                <ul className={styles.features}>
+                  {project.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className={styles.stackSection}>
+                <h4>Tech Stack</h4>
+                <div className={styles.stack}>
+                  {project.stack.map((tech, idx) => (
+                    <span key={idx} className={styles.techTag}>{tech}</span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

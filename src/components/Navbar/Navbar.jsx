@@ -4,9 +4,11 @@ import styles from './Navbar.module.scss';
 const navLinks = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'cp', label: 'CP' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'cp', label: 'Competitive Programming' },
+  { id: 'achievements', label: 'Achievements' },
 ];
 
 const Navbar = () => {
